@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Deep Learning @ UGA - Speaker</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Deep Learning @ UGA</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="index.html">Home</a></li>
+											<li><a href="schedule.html">Schedule</a></li>
+											<li><a href="past_speakers.html">Past Speakers</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2>David Nicholson</h2>
+							<p>Monday, November 26th, 2018</p>
+						</header>
+						<section class="wrapper style5">
+							<div class="inner 4u">
+								<h3>A comparative study of neural network architectures for segmentation: finding syllables in birdsong</h3>
+
+								<span class="image left"><img src="speakers/david_nicholson_112618/david_nicholson_112618_resized.jpg" alt="" /></span>
+
+								<p>
+									<p>
+									Vocalizations such as speech can be segmented into units like words or phonemes. Neural networks for speech to text typically avoid segmenting into units of time, instead mapping directly from the input features to a sequence of text. Neglecting the segmentation problem allows these networks to achieve high accuracy. However there are many cases where it is desirable to find segments, such as diagnosis of speech disorders.
+									<br>
+									<br>
+									Another case where it is desirable to find segments is in birdsong. Songbirds learn their songs as juveniles from adult tutors, much like a baby learns to talk from its parents. Many neuroscientists study songbirds to understand how brains learn and produce speech and similar motor skills like playing the piano. However the field has been held back by the inability to fully automate the process of segmenting song into its elements, often called syllables, and then label those syllables. Because of this bottleneck, often only a small portion of the thousands of songs collected in a behavioral experiment can be analyzed.
+									<br>
+									<br>
+									Previously, my collaborators and I have shown that birdsong provides a good testbed for networks that segment vocalizations, and that a hybrid convolutional-recurrent neural network can outperform previously proposed architectures that segment birdsong into syllables.
+									</p>
+
+									<p><a href="https://youtu.be/1XEDFpUGmqs">Video</a></p>
+
+									<p><a href = "https://nickledave.github.io/neural-network-segment-birdsong.html">Github Page</a></p>
+
+									However it remains unclear whether networks for segmentation require recurrent connections, or whether alternatively fully convolutional architectures can recover segments. It is also unclear how robust the different architectures are to noise. Initial results suggest that two types of convolutional networks (encoder-decoder and dilated convolutional) yield segmentation as good as a network with a recurrent connection. Furthermore, the convolutational networks can be trained in about a third of the time. Experiments in progress test how robust these networks are to the presence of noise. I will discuss whether recurrent connections are always advantageous in neural networks or whether convolutional architectures can always be competitive, provided the input can be represented as an image.
+								</p>
+
+
+								<p>
+									Dr. Nicholson is a neuroscientist at Emory University in Atlanta, Georgia.
+					
+								</p>
+
+							</div>
+						</section>
+					</article>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="https://delug.slack.com/messages" class="icon fa-slack"><span class="label">Slack</span></a></li>
+							<li><a href="https://groups.google.com/d/forum/delug" class="icon fa-google"><span class="label">Mailing List</span></a></li>
+
+							<li><a href="https://twitter.com/SpectralFilter" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="mailto:squinn@cs.uga.edu?Subject=Deep Learning @ UGA" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+
+						</ul>
+						<ul class="copyright">
+							<li>&copy; EDS@UGA</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
