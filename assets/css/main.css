@@ -2565,6 +2565,45 @@
 		.spotlight:nth-child(10) {
 			background-color: rgba(0, 0, 0, 0.75);
 		}
+		.spotlight:nth-child(11) {
+			background-color: rgba(0, 0, 0, 0.075);
+		}
+
+		.spotlight:nth-child(12) {
+			background-color: rgba(0, 0, 0, 0.15);
+		}
+
+		.spotlight:nth-child(13) {
+			background-color: rgba(0, 0, 0, 0.225);
+		}
+
+		.spotlight:nth-child(14) {
+			background-color: rgba(0, 0, 0, 0.3);
+		}
+
+		.spotlight:nth-child(15) {
+			background-color: rgba(0, 0, 0, 0.375);
+		}
+
+		.spotlight:nth-child(16) {
+			background-color: rgba(0, 0, 0, 0.45);
+		}
+
+		.spotlight:nth-child(17) {
+			background-color: rgba(0, 0, 0, 0.525);
+		}
+
+		.spotlight:nth-child(18) {
+			background-color: rgba(0, 0, 0, 0.6);
+		}
+
+		.spotlight:nth-child(19) {
+			background-color: rgba(0, 0, 0, 0.675);
+		}
+
+		.spotlight:nth-child(20) {
+			background-color: rgba(0, 0, 0, 0.75);
+		}
 
 		@media screen and (max-width: 1280px) {
 
