@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Deep Learning @ UGA - Speaker</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Deep Learning @ UGA</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="index.html">Home</a></li>
+											<li><a href="schedule.html">Schedule</a></li>
+											<li><a href="past_speakers.html">Past Speakers</a></li>
+											<li><a href="alumni.html">Alumni</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2>Mohammad Reza Keshtkaran</h2>
+							<p>Tuesday, February 26, 2019</p>
+						</header>
+						<section class="wrapper style5">
+							<div class="inner 4u">
+								<h3>Large-scale automated deep neural network training framework for robust inference of neural population dynamics</h3>
+
+								<span class="image left"><img src="speakers/mohammad_keshtkaran_022619/mohammad_keshtkaran_022619.png" alt="" style="width:200px;height:200px;" /></span>
+
+								<p>
+									Over the past decade, the ability to record from large populations of neurons has increased exponentially. These capabilities motivate powerful new tools to understand the computations underlying the activity of large neural population. We recently demonstrated a deep learning tool, Latent Factor Analysis via Dynamical Systems (LFADS), that uses sequential autoencoders (SAEs) to precisely estimate neural population dynamics underlying neural population (Pandarinath et al. 2017, BioRxiv), which in turn led to, for example, a dramatic increase in our ability to decode arm movements from brain activity. However, like many deep learning methods, SAEs require careful hand-tuning of complex model hyperparameters (HPs) to ensure optimal performance, which is challenging, time-consuming, and critically limits their application. Importantly, current SAEs are susceptible to overfitting if HPs are automatically searched, due to a lack of appropriate cross-validation strategy. In this talk I will present a novel network optimization scheme that we have developed to force the SAE to only model structure that is shared across neurons, which helps avoid overfitting. Secondly I will describe a large-scale, automated HP tuning framework based on Population Based Training (PBT; Jaderberg et al. 2017, arXiv), to train many tens of models simultaneously while using evolutionary algorithms to tune HPs and find optimal models. Finally I will present the results on decoding monkey’s arm kinematics from their brain activity modeled through our framework, and show that PBT-LFADS consistently matched or outperformed the performance of the original LFADS with hand-tuned HPs. Strikingly, the modified SAE with PBT was more robust to dataset size, and achieved better generalization to movement conditions the model had not been trained on. Our large-scale, automated training framework for SAEs will provide the neuroscience community with a robust and easy to use tool to estimate neural population dynamics.
+
+
+								</p>
+
+								<!--
+								<p>Slides [<a href="speakers/andrew_king_041318/ " target="_blank">pdf</a>]
+								</p>
+							-->
+
+								<p>
+									Mohammad Reza Keshtkaran is currently a postdoctoral fellow in the Coulter Department of Biomedical Engineering at Emory and Georgia Tech where he primarily uses deep learning to model the dynamical structure underlying the activity of large population of neurons. He received a B.S. from Shiraz University, Iran in 2009 and a Ph.D. in Electrical and Computer Engineering from the National University of Singapore in 2014. His research has been focused on signal processing, machine learning, and large-scale training and hyperparameter optimization of deep neural networks for modeling the activity of large number neurons in the brain. 
+								</p>
+
+							</div>
+						</section>
+					</article>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="https://delug.slack.com/messages" class="icon fa-slack"><span class="label">Slack</span></a></li>
+							<li><a href="https://groups.google.com/d/forum/delug" class="icon fa-google"><span class="label">Mailing List</span></a></li>
+
+							<li><a href="https://twitter.com/SpectralFilter" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="mailto:squinn@cs.uga.edu?Subject=Deep Learning @ UGA" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+
+						</ul>
+						<ul class="copyright">
+							<li>&copy; EDS@UGA</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
