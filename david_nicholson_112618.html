@@ -43,14 +43,23 @@
 					<article id="main">
 						<header>
 							<h2>David Nicholson</h2>
-							<p>Monday, November 26th, 2018</p>
+							<p>Tuesday, April 23rd, 2019 <br>Monday, November 26th, 2018</p>
 						</header>
 						<section class="wrapper style5">
 							<div class="inner 4u">
-								<h3>A comparative study of neural network architectures for segmentation: finding syllables in birdsong</h3>
+								<h3>Thrillington: lessons learned from replicating a recurrent model of visual attention</h3>
 
 								<span class="image left"><img src="speakers/david_nicholson_112618/david_nicholson_112618.jpg" alt="" style="width:200px;height:200px;"/></span>
 
+								
+									<p>
+                                       Neural networks for computer vision process an entire image in parallel, but humans and many other animals fixate on a series of points in a scene as they scan it for information. This act of actively sampling the visual environment is called “overt attention”, and it has inspired several threads of artificial intelligence research. One example can be found in the paper Recurrent Models of Visual Attention (RAM) by Mnih et al. from 2014 <span><a href="https://papers.nips.cc/paper/5542-recurrent-models-of-visual-attention">(https://papers.nips.cc/paper/5542-recurrent-models-of-visual-attention)</a></span>. The RAM model is a recurrent network trained in part with reinforcement learning to integrate a series of small “glimpses” that it uses to classify images. In this talk I will discuss my results from implementing this model <span><a href="https://github.com/NickleDave/thrillington">(https://github.com/NickleDave/thrillington)</a></span>. I will begin with a brief introduction to the stochastic units used in the RAM model and how they can be trained with the REINFORCE algorithm. Along the way I’ll point out issues with some extant publicly-available implementations and some “tricks of the trade” for training reinforcement learning agents. Then I will provide an analysis of the “behavior” of this model and how that behavior depends on its hyperparameters. Lastly I’ll talk about work in progress benchmarking this model and others <span><a href="https://github.com/NickleDave/aver">(https://github.com/NickleDave/aver)</a></span> with a visual search task <span><a href="https://github.com/NickleDave/searchstims">(https://github.com/NickleDave/searchstims)</a></span>.
+                                   </p>
+                                   
+
+
+
+								<h3>A comparative study of neural network architectures for segmentation: finding syllables in birdsong</h3>
 								<p>
 									<p>
 									Vocalizations such as speech can be segmented into units like words or phonemes. Neural networks for speech to text typically avoid segmenting into units of time, instead mapping directly from the input features to a sequence of text. Neglecting the segmentation problem allows these networks to achieve high accuracy. However there are many cases where it is desirable to find segments, such as diagnosis of speech disorders.
@@ -69,11 +78,13 @@
 									However it remains unclear whether networks for segmentation require recurrent connections, or whether alternatively fully convolutional architectures can recover segments. It is also unclear how robust the different architectures are to noise. Initial results suggest that two types of convolutional networks (encoder-decoder and dilated convolutional) yield segmentation as good as a network with a recurrent connection. Furthermore, the convolutational networks can be trained in about a third of the time. Experiments in progress test how robust these networks are to the presence of noise. I will discuss whether recurrent connections are always advantageous in neural networks or whether convolutional architectures can always be competitive, provided the input can be represented as an image.
 								</p>
 
-
+								<h3>BIO</h3>
 								<p>
-									Dr. Nicholson is a neuroscientist at Emory University in Atlanta, Georgia.
-					
+									David Nicholson <span><a href="https://nicholdav.info/">(https://nicholdav.info/)</a></span> is a neuroscientist at Emory University in Atlanta, Georgia. He works for the Prinz lab in the Biology department, developing brain-inspired continual machine learning algorithms as a member of a multi-university team on a DARPA project. He also works in applied machine learning in the area of animal vocalizations. In collaboration with Yarden Cohen, he developed a library to help researchers use neural networks for automated segmentation and annotation of vocalizations <span><a href="https://github.com/NickleDave/vak">(https://github.com/NickleDave/vak)</a></span>. They have used this library to benchmark the first neural net architecture capable of accurately segmenting and labeling syllables in hundreds of hours of complex birdsong, such as that of the canary <span><a href="https://github.com/yardencsGitHub/tweetynet">(https://github.com/yardencsGitHub/tweetynet)</a></span>. These projects began during his graduate studies in Sam Sober’s lab at Emory, where his dissertation work showed that connections known to be important for learning motor skills in humans and other mammals are also found in regions of the songbird brain that are required to learn song. David also maintains several Python packaged and tools related to his research (more at <span><a href="https://github.com/NickleDave/MetaNickleDave">https://github.com/NickleDave/MetaNickleDave</a></span>).
 								</p>
+								
+								
+								
 
 							</div>
 						</section>
