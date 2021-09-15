@@ -1,0 +1,60 @@
+{
+    "resources": [
+        {
+            "name": "Introduction to Python, Git, and Data Science",
+            "link":"https://github.com/delug/Workshop1",
+            "difficulty": "Entry",
+            "workshops": [1],
+            "tags": ["Workshop", "Git", "Python"]
+        },
+        {
+            "name": "Learn Git Branching",
+            "link":"https://learngitbranching.js.org/?locale=en_US",
+            "difficulty": "Intermediate",
+            "workshops": [1],
+            "tags": ["Git"]
+        },
+        {
+            "name": "Python3 Documentation",
+            "link":"https://docs.python.org/3/",
+            "difficulty": "Entry",
+            "workshops": [1],
+            "tags": ["Python"]
+        },
+        {
+            "name": "The Mathematics Behind Data Science",
+            "link":"https://github.com/delug/Workshop2",
+            "difficulty": "Entry",
+            "workshops": [2],
+            "tags": ["Workshop", "Math"]
+        },
+        {
+            "name": "Data Science Techniques and Algorithms",
+            "link":"https://github.com/delug/Workshop3",
+            "difficulty": "Entry",
+            "workshops": [3],
+            "tags": ["Workshop", "Math"]
+        },
+        {
+            "name": "Intro to Neural Networks",
+            "link":"https://github.com/delug/Workshop4",
+            "difficulty": "Entry",
+            "workshops": [4],
+            "tags": ["Workshop", "Neural Nets"]
+        },
+        {
+            "name": "Layers, Modules & More",
+            "link":"https://github.com/delug/Workshop5",
+            "difficulty": "Entry",
+            "workshops": [5],
+            "tags": ["Workshop", "Neural Nets"]
+        },
+        {
+            "name": "Neural Models and Architectures",
+            "link":"https://github.com/delug/Workshop6",
+            "difficulty": "Entry",
+            "workshops": [6],
+            "tags": ["Workshop", "Neural Nets"]
+        }
+    ]
+}

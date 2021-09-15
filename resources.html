@@ -30,67 +30,22 @@
 		</style>
 
 		<script type="text/javascript">
-			const resources = [
-				{
-					name: "Introduction to Python, Git, and Data Science",
-					link:"https://github.com/delug/Workshop1",
-					difficulty: "Entry",
-					workshops: [1],
-					tags: ["Workshop", "Git", "Python", "Entry Level"]
-				},
-				{
-					name: "Learn Git Branching",
-					link:"https://learngitbranching.js.org/?locale=en_US",
-					difficulty: "Entry",
-					workshops: [1],
-					tags: ["Git", "Entry Level"]
-				},
-				{
-					name: "Python3 Documentation",
-					link:"https://docs.python.org/3/",
-					difficulty: "Entry",
-					workshops: [1],
-					tags: ["Python", "Entry Level"]
-				},
-				{
-					name: "The Mathematics Behind Data Science",
-					link:"https://github.com/delug/Workshop2",
-					difficulty: "Entry",
-					workshops: [2],
-					tags: ["Workshop", "Math", "Entry Level"]
-				},
-				{
-					name: "Data Science Techniques and Algorithms",
-					link:"https://github.com/delug/Workshop3",
-					difficulty: "Entry",
-					workshops: [3],
-					tags: ["Workshop", "Math", "Entry Level"]
-				},
-				{
-					name: "Intro to Neural Networks",
-					link:"https://github.com/delug/Workshop4",
-					difficulty: "Entry",
-					workshops: [4],
-					tags: ["Workshop", "Neural Nets", "Entry Level"]
-				},
-				{
-					name: "Layers, Modules & More",
-					link:"https://github.com/delug/Workshop5",
-					difficulty: "Entry",
-					workshops: [5],
-					tags: ["Workshop", "Neural Nets", "Entry Level"]
-				},
-				{
-					name: "Neural Models and Architectures",
-					link:"https://github.com/delug/Workshop6",
-					difficulty: "Entry",
-					workshops: [6],
-					tags: ["Workshop", "Neural Nets", "Entry Level"]
-				}
-			]
+			resources = []
+			fetch("resources.json"
+			).then(response => {
+				console.log(response)
+				return response.json();
+			}).then(data => resources = data.resources);
 			
 			allTags = []
+			allLevels = []
 			activeTags = []
+			for (resource of resources) {
+				if (!allLevels.includes(resource.difficulty)) {
+					allLevels.push(resource.difficulty)
+					allTags.push(resource.difficulty + " Level")
+				}
+			}
 			for (resource of resources) {
 				for (tag of resource.tags) {
 					if (!allTags.includes(tag)) {
@@ -123,7 +78,13 @@
 					let add_row = true
 					if (activeTags.length > 0) {
 						for (const tag of activeTags) {
-							if (!resource.tags.includes(tag)) {
+							if (tag.endsWith(" Level")) {
+								const level = tag.substring(0, tag.length - 6)
+								if (level != resource.difficulty) {
+									add_row = false
+									break
+								}
+							} else if (!resource.tags.includes(tag)) {
 								add_row = false
 								break
 							}
@@ -146,6 +107,12 @@
 						} else {
 							table_text += secondIndent + "<td></td>\n"
 						}
+						table_text += secondIndent + "<td>"
+						for (const tag of resource.tags) {
+							table_text += tag + ", "
+						}
+						table_text = table_text.substring(0, table_text.length - 2)
+						table_text += "</td>\n"
 						table_text += baseIndent + "</tr>\n"
 						//i ++
 					}
@@ -242,9 +209,10 @@
                 								<thead>
                    									<tr>
                       										<th class="js-sort-number" style="width:10%">Number</th>
-                      										<th style="width:50%">Material</th>
-															<th class="js-sort-string" style="width:20%">Difficulty Rate</th>
-															<th style="width:20%">Related Workshop</th>
+                      										<th style="width:40%">Material</th>
+															<th class="js-sort-string" style="width:15%">Difficulty</th>
+															<th style="width:15%">Related WS</th>
+															<th style="width:20%">Tags</th>
                    									</tr>
                 								</thead>
                 								<tbody id="resource-table">
