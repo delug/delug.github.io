@@ -30,115 +30,124 @@
 		</style>
 
 		<script type="text/javascript">
-			resources = []
 			fetch("resources.json"
 			).then(response => {
 				console.log(response)
 				return response.json();
-			}).then(data => resources = data.resources);
-			
-			allTags = []
-			allLevels = []
-			activeTags = []
-			for (resource of resources) {
-				if (!allLevels.includes(resource.difficulty)) {
-					allLevels.push(resource.difficulty)
-					allTags.push(resource.difficulty + " Level")
-				}
-			}
-			for (resource of resources) {
-				for (tag of resource.tags) {
-					if (!allTags.includes(tag)) {
-						allTags.push(tag)
+			}).then(data => {
+				const resources = data.resources;
+
+				allTags = []
+				allLevels = []
+				activeTags = []
+				for (resource of resources) {
+					if (!allLevels.includes(resource.difficulty)) {
+						allLevels.push(resource.difficulty)
+						allTags.push(resource.difficulty + " Level")
 					}
 				}
-			}
+				for (resource of resources) {
+					for (tag of resource.tags) {
+						if (!allTags.includes(tag)) {
+							allTags.push(tag)
+						}
+					}
+				}
 
-			function set_tags() {
-				let tags_text = "\n"
-				let indent = ""
-				for (x = 0; x < 7; x ++) {
-					indent += "    "
+				function set_tags() {
+					let tags_text = "\n"
+					let indent = ""
+					for (x = 0; x < 7; x ++) {
+						indent += "    "
+					}
+					for (const tag of allTags) {
+						tags_text += "<li><a class=\"tag-button button fit\">" + tag + "</a></li>\n"
+					}
+					document.getElementById("tags").innerHTML = tags_text
 				}
-				for (const tag of allTags) {
-					tags_text += "<li><a class=\"tag-button button fit\">" + tag + "</a></li>\n"
-				}
-				document.getElementById("tags").innerHTML = tags_text
-			}
 
-			function change_table() {
-				let table_text = "\n"
-				let baseIndent = ""
-				for (x = 0; x < 13; x ++) {
-					baseIndent += "    "
-				}
-				let secondIndent = baseIndent + "    "
-				let i = 1
-				for (const resource of resources) {
-					let add_row = true
-					if (activeTags.length > 0) {
-						for (const tag of activeTags) {
-							if (tag.endsWith(" Level")) {
-								const level = tag.substring(0, tag.length - 6)
-								if (level != resource.difficulty) {
+				function change_table() {
+					let table_text = "\n"
+					let baseIndent = ""
+					for (x = 0; x < 13; x ++) {
+						baseIndent += "    "
+					}
+					let secondIndent = baseIndent + "    "
+					let i = 1
+					for (const resource of resources) {
+						let add_row = true
+						if (activeTags.length > 0) {
+							for (const tag of activeTags) {
+								if (tag.endsWith(" Level")) {
+									const level = tag.substring(0, tag.length - 6)
+									if (level != resource.difficulty) {
+										add_row = false
+										break
+									}
+								} else if (!resource.tags.includes(tag)) {
 									add_row = false
 									break
 								}
-							} else if (!resource.tags.includes(tag)) {
-								add_row = false
-								break
 							}
 						}
-					}
-					if (add_row) {
-						table_text += baseIndent + "<tr>\n"
-						table_text += secondIndent + "<td>" + i + "</td>\n"
-						table_text += secondIndent + "<td><a href=\"" + resource.link + "\">" + resource.name + "</td>\n"
-						table_text += secondIndent + "<td>" + resource.difficulty + "</td>\n"
-						if (resource.workshops.length == 1) {
-							table_text += secondIndent + "<td>Workshop " + resource.workshops[0] + "</td>\n"
-						} else if (resource.workshops.length > 1) {
-							table_text += secondIndent + "<td>Workshops "
-							for (workshop of resource.workshops) {
-								table_text += workshop + ", "
+						if (add_row) {
+							table_text += baseIndent + "<tr>\n"
+							table_text += secondIndent + "<td>" + i + "</td>\n"
+							table_text += secondIndent + "<td><a href=\"" + resource.link + "\">" + resource.name + "</td>\n"
+							table_text += secondIndent + "<td>" + resource.difficulty + "</td>\n"
+							if (resource.workshops.length == 1) {
+								table_text += secondIndent + "<td>Workshop " + resource.workshops[0] + "</td>\n"
+							} else if (resource.workshops.length > 1) {
+								table_text += secondIndent + "<td>Workshops "
+								for (workshop of resource.workshops) {
+									table_text += workshop + ", "
+								}
+								table_text = table_text.substring(0, table_text.length - 2)
+								table_text += "</td>\n"
+							} else {
+								table_text += secondIndent + "<td></td>\n"
+							}
+							table_text += secondIndent + "<td>"
+							for (const tag of resource.tags) {
+								table_text += tag + ", "
 							}
 							table_text = table_text.substring(0, table_text.length - 2)
 							table_text += "</td>\n"
-						} else {
-							table_text += secondIndent + "<td></td>\n"
+							table_text += baseIndent + "</tr>\n"
+							//i ++
 						}
-						table_text += secondIndent + "<td>"
-						for (const tag of resource.tags) {
-							table_text += tag + ", "
-						}
-						table_text = table_text.substring(0, table_text.length - 2)
-						table_text += "</td>\n"
-						table_text += baseIndent + "</tr>\n"
-						//i ++
+						i ++
 					}
-					i ++
+					document.getElementById("resource-table").innerHTML = table_text;
 				}
-				document.getElementById("resource-table").innerHTML = table_text;
-			}
 
-			function add_onclicks() {
-				const tag_buttons = document.body.getElementsByClassName("tag-button")
-				for (const button of tag_buttons) {
-					button.onclick = function () {
-						if(button.classList.contains('special')) {
-							button.classList.remove('special')
-							const index = activeTags.indexOf(button.innerHTML);
-							if (index > -1) {
-								activeTags.splice(index, 1);
+				function add_onclicks() {
+					const tag_buttons = document.body.getElementsByClassName("tag-button")
+					for (const button of tag_buttons) {
+						button.onclick = function () {
+							if(button.classList.contains('special')) {
+								button.classList.remove('special')
+								const index = activeTags.indexOf(button.innerHTML);
+								if (index > -1) {
+									activeTags.splice(index, 1);
+								}
+							} else {
+								button.classList.add('special')
+								activeTags.push(button.innerHTML)
 							}
-						} else {
-							button.classList.add('special')
-							activeTags.push(button.innerHTML)
+							change_table()
 						}
-						change_table()
 					}
 				}
-			}
+
+				function load_functs() {
+					set_tags()
+					change_table()
+					add_onclicks()
+				}
+
+				window.onload = load_functs
+			});
 
 			function filter_expand_collapse() {
 				const button = document.getElementById("filter-button").children[0]
@@ -152,14 +161,6 @@
 					document.getElementById("tags").setAttribute("hidden", null)
 				}
 			}
-
-			function load_functs() {
-				set_tags()
-				change_table()
-				add_onclicks()
-			}
-
-			window.onload = load_functs
 
 		</script>
 	</head>
