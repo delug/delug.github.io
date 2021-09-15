@@ -18,6 +18,15 @@
 			/*#tags {
 				margin-bottom: 0px;
 			}*/
+			.noselect {
+				-webkit-touch-callout: none; /* iOS Safari */
+				-webkit-user-select: none; /* Safari */
+				-khtml-user-select: none; /* Konqueror HTML */
+				-moz-user-select: none; /* Old versions of Firefox */
+				-ms-user-select: none; /* Internet Explorer/Edge */
+				user-select: none; /* Non-prefixed version, currently
+				supported by Chrome, Edge, Opera and Firefox */
+			}
 		</style>
 
 		<script type="text/javascript">
@@ -26,43 +35,57 @@
 					name: "Introduction to Python, Git, and Data Science",
 					link:"https://github.com/delug/Workshop1",
 					difficulty: "Entry",
-					workshop: 1,
-					tags: ["Workshop"]
+					workshops: [1],
+					tags: ["Workshop", "Git", "Python", "Entry Level"]
+				},
+				{
+					name: "Learn Git Branching",
+					link:"https://learngitbranching.js.org/?locale=en_US",
+					difficulty: "Entry",
+					workshops: [1],
+					tags: ["Git", "Entry Level"]
+				},
+				{
+					name: "Python3 Documentation",
+					link:"https://docs.python.org/3/",
+					difficulty: "Entry",
+					workshops: [1],
+					tags: ["Python", "Entry Level"]
 				},
 				{
 					name: "The Mathematics Behind Data Science",
 					link:"https://github.com/delug/Workshop2",
 					difficulty: "Entry",
-					workshop: 2,
-					tags: ["Workshop"]
+					workshops: [2],
+					tags: ["Workshop", "Math", "Entry Level"]
 				},
 				{
 					name: "Data Science Techniques and Algorithms",
 					link:"https://github.com/delug/Workshop3",
 					difficulty: "Entry",
-					workshop: 3,
-					tags: ["Workshop"]
+					workshops: [3],
+					tags: ["Workshop", "Math", "Entry Level"]
 				},
 				{
 					name: "Intro to Neural Networks",
 					link:"https://github.com/delug/Workshop4",
 					difficulty: "Entry",
-					workshop: 4,
-					tags: ["Workshop", "Neural Nets"]
+					workshops: [4],
+					tags: ["Workshop", "Neural Nets", "Entry Level"]
 				},
 				{
 					name: "Layers, Modules & More",
 					link:"https://github.com/delug/Workshop5",
 					difficulty: "Entry",
-					workshop: 5,
-					tags: ["Workshop", "Neural Nets"]
+					workshops: [5],
+					tags: ["Workshop", "Neural Nets", "Entry Level"]
 				},
 				{
 					name: "Neural Models and Architectures",
 					link:"https://github.com/delug/Workshop6",
 					difficulty: "Entry",
-					workshop: 6,
-					tags: ["Workshop", "Neural Nets"]
+					workshops: [6],
+					tags: ["Workshop", "Neural Nets", "Entry Level"]
 				}
 			]
 			
@@ -111,14 +134,22 @@
 						table_text += secondIndent + "<td>" + i + "</td>\n"
 						table_text += secondIndent + "<td><a href=\"" + resource.link + "\">" + resource.name + "</td>\n"
 						table_text += secondIndent + "<td>" + resource.difficulty + "</td>\n"
-						if (resource.hasOwnProperty('workshop')) {
-							table_text += secondIndent + "<td>Workshop " + resource.workshop + "</td>\n"
+						if (resource.workshops.length == 1) {
+							table_text += secondIndent + "<td>Workshop " + resource.workshops[0] + "</td>\n"
+						} else if (resource.workshops.length > 1) {
+							table_text += secondIndent + "<td>Workshops "
+							for (workshop of resource.workshops) {
+								table_text += workshop + ", "
+							}
+							table_text = table_text.substring(0, table_text.length - 2)
+							table_text += "</td>\n"
 						} else {
 							table_text += secondIndent + "<td></td>\n"
 						}
 						table_text += baseIndent + "</tr>\n"
-						i ++
+						//i ++
 					}
+					i ++
 				}
 				document.getElementById("resource-table").innerHTML = table_text;
 			}
@@ -139,6 +170,19 @@
 						}
 						change_table()
 					}
+				}
+			}
+
+			function filter_expand_collapse() {
+				const button = document.getElementById("filter-button").children[0]
+				if (button.classList.contains('fa-caret-right')) {
+					button.classList.remove('fa-caret-right')
+					button.classList.add('fa-caret-down')
+					document.getElementById("tags").removeAttribute("hidden")
+				} else {
+					button.classList.add('fa-caret-right')
+					button.classList.remove('fa-caret-down')
+					document.getElementById("tags").setAttribute("hidden", null)
 				}
 			}
 
@@ -190,7 +234,8 @@
 						<section class="wrapper style5">
 							<div class="inner">
 								<h3>Reading and code materials from workshop.</h3>
-								<ul class="actions horizontal" id="tags">
+								<h5 id="filter-button" class="noselect" onclick="filter_expand_collapse()" style="cursor:pointer">Filters <span class="icon fa-caret-right"></span></h4>
+								<ul hidden class="actions horizontal" id="tags">
 								</ul>
                 							<table class="js-sort-table" id="demo1">
                 								
